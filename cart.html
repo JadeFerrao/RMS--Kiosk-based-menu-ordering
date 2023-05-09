@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      body {
+  background-image: url('../img/background.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+h2, .g-price {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.g-price {
+  margin: 8px 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 70px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 950px) {
+  .container {
+    display: block;
+  }
+}
+.screen-togo, .screen-cart {
+  width: 375px;
+  max-height: 770px;
+  overflow: scroll;
+  border-radius: 25px;
+  background: white;
+  padding-top: 30px;
+  padding-left: 30px;
+  margin: 20px;
+  box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.menu-item {
+  background: #E4F0FD;
+  border-radius: 20px 0 0 20px;
+  margin: 30px 0;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  position: relative;
+}
+.menu-item:nth-child(2n) {
+  background: #FBE4F0;
+}
+.menu-item:nth-child(3n) {
+  background: #F7F7FE;
+}
+.menu-item:nth-child(4n) {
+  background: #E4FDF1;
+}
+.menu-item img {
+  width: 150px;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+}
+.menu-item .add-button {
+  position: absolute;
+  border: none;
+  background: #6B00F5;
+  padding: 6px 20px 4px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  bottom: -10px;
+  left: 150px;
+  transition: all 0.3s;
+}
+.menu-item .add-button:hover {
+  background: #5815AE;
+}
+
+.menu-item-dets {
+  margin-left: 150px;
+  padding-bottom: 15px;
+}
+
+.menu-item-heading {
+  font-size: 18px;
+  margin: 10px 0 12px;
+}
+
+.screen-cart {
+  padding-right: 30px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+.cart-item {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #D7D7F9;
+  animation: fadeIn 0.3s;
+}
+.cart-item:last-child {
+  border-bottom: 5px solid #D7D7F9;
+}
+.cart-item img {
+  width: 65px;
+}
+.cart-item .g-price {
+  font-size: 24px;
+}
+
+.cart-item-dets {
+  margin-left: 15px;
+  width: 100%;
+}
+
+.cart-item-heading {
+  margin: 10px 0;
+}
+
+.cart-math-item {
+  margin: 5px 0;
+  font-weight: 700;
+}
+.cart-math-item span {
+  display: inline-block;
+  text-align: right;
+}
+.cart-math-item .cart-math-header {
+  width: 50%;
+}
+.cart-math-item .g-price {
+  width: 40%;
+}
+    </style>
+  </head>
+  <body>
+       <div class="container">
+  <div class="screen-togo">
+    <h2>To Go Menu</h2>
+    <ul class="menu-items">
+      <!--    Menu Item 1    -->
+      <li class="menu-item">
+      <img src="https://assets.codepen.io/687837/plate__french-fries.png" alt="French Fries with Ketchup" class="menu-image">
+        <div class="menu-item-dets">
+          <p class="menu-item-heading">French Fries with Ketchup</p>
+          <p class="g-price">Rs.250</p>
+        </div>
+        <button
+          name="Iten-no"
+          value="1"
+          class="add-button"
+          data-title="French Fies with Ketchup"
+          data-price="250">Add to Cart</button>
+      </li>
+      <!--    Menu Item 2    -->
+      <li class="menu-item">
+        <img src="./img/plate__salmon-vegetables.webp" alt="Salmon and Vegetables" class="menu-image">
+        <div class="menu-item-dets">
+          <p class="menu-item-heading">Salmon and Vegetables</p>
+          <p class="g-price">Rs.600</p>
+        </div>
+        <button
+          name="Iten-no"
+          value="2"
+          class="add-button"
+          data-title="Salmon and Vegetables"
+          data-price="600">Add to Cart</button>
+      </li>
+      <!--    Menu Item 3    -->
+      <li class="menu-item">
+        <img src="./img/plate__spaghetti-meat-sauce.webp" alt="Spaghetti with Sauce" class="menu-image">
+        <div class="menu-item-dets">
+          <p class="menu-item-heading">Spaghetti with Sauce</p>
+          <p class="g-price">Rs.500</p>
+        </div>
+        <button
+          name="Iten-no"
+          value="3"
+          class="add-button"
+          data-title="Spaghetti with Sauce"
+          data-price="500">Add to Cart</button>
+      </li>
+      <!--    Menu Item 4    -->
+      <li class="menu-item">
+        <img src="./img/plate__tortellini.webp" alt="Tortellini" class="menu-image">
+        <div class="menu-item-dets">
+          <p class="menu-item-heading">Tortellini</p>
+          <p class="g-price">Rs.650</p>
+        </div>
+        <button 
+          name="Iten-no"
+          value="4"
+          class="add-button"
+          data-title="Tortellini"
+          data-price="650"
+          >Add to Cart</button>
+      </li>
+      <!--    Menu Item 5    -->
+      <li class="menu-item">
+        <img src="./img/plate__chicken-salad.webp" alt="Chicken Salad" class="menu-image">
+        <div class="menu-item-dets">
+          <p class="menu-item-heading">Chicken Salad</p>
+          <p class="g-price">Rs.350</p>
+        </div>
+        <button
+          name="Iten-no"
+          value="5"
+          class="add-button"
+          data-title="Chicken Salad"
+          data-price="350">Add to Cart</button>
+      </li>
+    </ul>
+  </div>
+  <div class="screen-cart">
+    <h2>Your Cart</h2>
+    <!--  Cart Items -->
+    <ul class="cart-items">
+    </ul>
+    
+    <div class="cart-math">
+      <p>Add items to cart</p>
+    </div>
+  </div>
+</div>  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script>
+      let subtotal = 0;
+
+const calculateTax = subtotal => {
+  const tax = subtotal * 0.13;
+  const formattedTax = tax.toFixed(2);
+  return formattedTax;
+};
+
+const calculateTotal = subtotal => {
+  const tax = calculateTax(subtotal);
+  const total = parseFloat(subtotal) + parseFloat(tax);
+  const formattedTotal = total.toFixed(2);
+  return formattedTotal;
+};
+
+const getImgLink = title => {
+  let imgLink;
+  switch (title) {
+    case 'French Fies with Ketchup':
+      imgLink = 'https://assets.codepen.io/687837/plate__french-fries.png';
+      break;
+    case 'Salmon and Vegetables':
+      imgLink = 'https://assets.codepen.io/687837/plate__salmon-vegetables.png';
+      break;
+    case 'Spaghetti with Sauce':
+      imgLink = 'https://assets.codepen.io/687837/plate__spaghetti-meat-sauce.png';
+      break;
+    case 'Tortellini':
+      imgLink = 'https://assets.codepen.io/687837/plate__tortellini.png';
+      break;
+    case 'Chicken Salad':
+      imgLink = 'https://assets.codepen.io/687837/plate__chicken-salad.png';
+      break;
+    default:
+      imgLink = 'https://assets.codepen.io/687837/plate__chicken-salad.png';}
+
+  return imgLink;
+};
+
+$('.add-button').on('click', function () {
+  const title = $(this).data('title');
+  const price = $(this).data('price');
+  const imgLink = getImgLink(title);
+
+  const element = `
+    <li class="cart-item">
+      <img src="${imgLink}" alt="${title}">
+      <div class="cart-item-dets">
+        <p class="cart-item-heading">${title}</p>
+        <p class="g-price">$${price}</p>
+      </div>
+    </li>
+  `;
+  $('.cart-items').append(element);
+
+  subtotal = subtotal + price;
+
+  const formattedSubtotal = subtotal.toFixed(0);
+  
+  $('.cart-math').html(`
+    <p class="cart-math-item">
+      <span class="cart-math-header">Total:</span>
+      <span class="g-price subtotal">Rs.${formattedSubtotal}</span>
+    </p>
+  `);
+});
+    </script>
+    
+  </body>
+</html>
+
+
+<?php
+require "con.php";
+if(isset($_POST)){
+        $table_name=$_POST["table_name"];
+    }
+
+$sql="INSERT INTO `TABLE_`(Table_name) VALUES ('$table_name')";
+mysqli_query($conn, $sql);
+?>

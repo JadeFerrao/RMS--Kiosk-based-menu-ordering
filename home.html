@@ -1,0 +1,218 @@
+﻿<html>
+<head>
+<title>RESTAURANT MANAGEMENT</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body
+{
+font-family: "Amatic SC", sans-serif;
+}
+h1, h2, h3, h4, h5, h6 
+{
+  font-family: "script";
+  letter-spacing: 5px;
+}
+
+.navbar {
+  width: 100%;
+  background-color:white;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: black;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: grey;
+}
+
+.active {
+font-family: sans-serif;
+  background-color:lavender;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+
+
+.heading {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+.checked {
+  color: orange;
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top:10px;
+}
+
+.middle {
+  margin-top:10px;
+  float: left;
+  width: 70%;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+/* Individual bars */
+.bar-5 {width: 60%; height: 18px; background-color: #04AA6D;}
+.bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
+.bar-3 {width: 19%; height: 18px; background-color: #00bcd4;}
+.bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
+.bar-1 {width: 8%; height: 18px; background-color: #f44336;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .side, .middle {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="navbar">
+  <a class="active" href="home.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+  <a href="menu.html"><i class="fa fa-fw fa-book"></i> Menu</a> 
+  <a href="contact.html"><i class="fa fa-fw fa-phone"></i> Contact</a> 
+  <a href="login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+</div>
+<img src="new.gif" width="1400" height="500">
+<br>
+
+<div class="w3-content" style="max-width:1100px">
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="table.jpg"  width="400" height="550">
+</div>
+
+      <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">About Rest-o-Raunt</h1><br>
+      <h3 class="w3-center">Tradition since 2017</h3>
+      <p class="w3-large">The Rest-o-Raunt was founded in Las Vegas by 2 young brothers <b>Jayden ferrao</b> and <b>Joyfree dias.</b>Discoveries are made when boundaries are crossed. <br>At Rest-o-Raunt, Las Vegas's wild freedom is tempered by the rigours of contemporary cuisine to create a restaurant at the edge. Check your assumptions with your coats and join us on a journey of flavour discovery. <br> Rest-o-Raunt's design challenges the separation of kitchen and dining room, so each become part of the other. We believe in comfort over formality, collaboration over individual feats, and its depth, complexity and deliciousness lead the way. 
+    </div>
+</div>
+<hr>
+<center><h3>Watch our promotional video below:</h3></center>
+<center><video controls loop="controls" width="60%" height="80%" autoplay poster="promopic.jpg">
+<source src="promo.mp4" type="video/mp4">
+</video></center>
+
+<br>
+<hr>
+<span class="heading">Customer Rating</span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<p>4.1 average based on 254 reviews.</p>
+<hr style="border:3px solid #f1f1f1">
+
+<div class="row">
+  <div class="side">
+    <div>5 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-5"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>150</div>
+  </div>
+  <div class="side">
+    <div>4 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-4"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>63</div>
+  </div>
+  <div class="side">
+    <div>3 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-3"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>25</div>
+  </div>
+  <div class="side">
+    <div>2 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-2"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>6</div>
+  </div>
+  <div class="side">
+    <div>1 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-1"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>9</div>
+  </div>
+</div>
+
+<hr>
+
+<footer>
+<center><p>Powered by CODING DADDIES  <span style="font-size:200%;color:red;">&hearts;</span></p></center>
+</footer>
+</body>
+</html>

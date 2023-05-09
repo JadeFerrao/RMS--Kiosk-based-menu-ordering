@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>SIGN UP</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<style>
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+ 
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+</style>
+</head>
+<body background="bg3.jpg">
+<div class="signup-box">
+<h1>EMPLOYEE DETAILS</h1>
+<form  method="post" onreset="alert('It Has Been Set To Reset')" onsubmit="alert('It Has Been Submitted')" action="employee_details.php">
+<label>First name</label>
+<input type="text" placeholder="John" name="Fname" required>
+<label>Middle name</label>
+<input type="text" placeholder="Zachary" name="Mname">
+<label>Last name</label>
+<input type="text" placeholder="Doe" name="Lname" required>
+<label>Phone number</label>
+<input type="text" placeholder="+cc xxxx xxxx xx" name="Pnumber" required>
+<label>Designation</label>
+<input type="text" placeholder="CEO" name="jtitle" required>
+<label>Address</label>
+<input type="text" placeholder="Berlin" name="address" required>
+<label>Joining date</label>
+<input type="date" name="jdate">
+<label>Email</label>
+<input type="text" placeholder="JohnDoe@gmail.com"  name="email" required>
+<label>Salary</label>
+<input type="text" placeholder="12000" name="salary">
+<label>Supervisor ID</label>
+<input type="text" placeholder="XXXX1234" required name="super_id"><br><br>
+
+<label class="container">Male
+<input type="radio" name="sex" checked="checked" value="male">
+<span class="checkmark"></span>
+</label>
+<label class="container">Female
+<input type="radio" name="sex" checked="checked"  value="female">
+<span class="checkmark"></span>
+</label>
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
+</form>
+
+</body>
+</html>
+
+
+
+

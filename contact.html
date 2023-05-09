@@ -1,0 +1,150 @@
+<html>
+<title>CONTACT</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {
+font-family: "Amatic SC", sans-serif
+}
+.navbar {
+  width: 100%;
+  background-color:white;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: black;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: grey;
+}
+
+.active {
+font-family: sans-serif
+  background-color:lavender;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  background-color:brown;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: pink;
+}
+
+
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+<body>
+<div class="navbar">
+  <a class="active" href="home.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+  <a href="menu.html"><i class="fa fa-fw fa-book"></i> Menu</a> 
+  <a href="contact.html"><i class="fa fa-fw fa-phone"></i> Contact</a> 
+</div>
+<div id="home" class="w3-content">
+<div class="w3-container w3-blue-grey w3-grayscale-min w3-xlarge w3-padding-top-32">
+<h1 class="w3-center w3-jumbo">Contact</h1>
+<p>Find us at 23-venue downtown Las Vegas or call us at 05050515-122330</p>
+<p>We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggest criteria of them all, both look and taste.</p>
+
+<center><p style="color: black">TIMINGS:<br>
+           12:30am - 11:30pm (Lunch & Dinner)<br>
+           6:30am - 10:30am (Breakfast)<br></p>
+
+
+<hr>
+<h2 style="text-align:center; color: yellow">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Jayden Ferrao</h2>
+        <p class="title">CEO & Founder</p>
+         <p>ferrao@example.com</p>
+        <p>05050515-122330</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Joyfree Dias</h2>
+        <p class="title">Co-Founder & Developer</p>
+        <p>dias@example.com</p>
+        <p>05050515-122330</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>John Doe</h2>
+        <p class="title">Admin</p>
+        <p>admin@example.com</p>
+        <p>05050515-122330</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</body>
+</html>
