@@ -1,218 +1,1049 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>RESTAURANT MANAGEMENT</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body
-{
-font-family: "Amatic SC", sans-serif;
-}
-h1, h2, h3, h4, h5, h6 
-{
-  font-family: "script";
-  letter-spacing: 5px;
-}
-
-.navbar {
-  width: 100%;
-  background-color:white;
-  overflow: auto;
-}
-
-.navbar a {
-  float: left;
-  padding: 12px;
-  color: black;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar a:hover {
-  background-color: grey;
-}
-
-.active {
-font-family: sans-serif;
-  background-color:lavender;
-}
-
-@media screen and (max-width: 500px) {
-  .navbar a {
-    float: none;
-    display: block;
-  }
-}
-
-
-
-.heading {
-  font-size: 25px;
-  margin-right: 25px;
-}
-
-.fa {
-  font-size: 25px;
-}
-
-.checked {
-  color: orange;
-}
-
-/* Three column layout */
-.side {
-  float: left;
-  width: 15%;
-  margin-top:10px;
-}
-
-.middle {
-  margin-top:10px;
-  float: left;
-  width: 70%;
-}
-
-/* Place text to the right */
-.right {
-  text-align: right;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* The bar container */
-.bar-container {
-  width: 100%;
-  background-color: #f1f1f1;
-  text-align: center;
-  color: white;
-}
-
-/* Individual bars */
-.bar-5 {width: 60%; height: 18px; background-color: #04AA6D;}
-.bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
-.bar-3 {width: 19%; height: 18px; background-color: #00bcd4;}
-.bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
-.bar-1 {width: 8%; height: 18px; background-color: #f44336;}
-
-/* Responsive layout - make the columns stack on top of each other instead of next to each other */
-@media (max-width: 400px) {
-  .side, .middle {
-    width: 100%;
-  }
-  .right {
-    display: none;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest-o-Raunt | Fine Dining Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ce1212;
+            --secondary-color: #37373f;
+            --accent-color: #7f7f90;
+            --light-bg: #fff;
+            --dark-bg: #0c0c0c;
+            --section-bg: #eee;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Amatic SC', cursive;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            padding-bottom: 30px;
+        }
+        
+        .section-title h2 {
+            font-size: 48px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding-bottom: 0;
+            color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: calc(50% - 40px);
+        }
+        
+        .section-title p {
+            margin-bottom: 0;
+            font-size: 16px;
+            color: var(--accent-color);
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-family: 'Amatic SC', cursive;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            z-index: 1001;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-menu li {
+            position: relative;
+            margin: 0 12px;
+        }
+        
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary-color);
+            padding: 10px 0;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover, 
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-nav-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') top center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background: #e61414;
+            border-color: #e61414;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--secondary-color);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h3 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .about-text ul {
+            margin-bottom: 30px;
+        }
+        
+        .about-text ul li {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .about-text ul li i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        /* Menu Section */
+        .menu {
+            padding: 80px 0;
+            background-color: var(--section-bg);
+        }
+        
+        .menu-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .menu-filters li {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+        
+        .menu-filters li.active,
+        .menu-filters li:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .menu-item-content {
+            padding: 20px;
+        }
+        
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .menu-item-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .menu-item-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .menu-item-description {
+            color: var(--accent-color);
+            font-size: 14px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            margin: 0 15px;
+        }
+        
+        .testimonial-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+        }
+        
+        .testimonial-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        .testimonial-rating {
+            margin-top: 10px;
+            color: #ffc107;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--section-bg);
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .contact-info-content h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .contact-info-content p {
+            color: var(--accent-color);
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-top: 0;
+                transition: var(--transition);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 48px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-<div class="navbar">
-  <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i> Home</a> 
-  <a href="menu.html"><i class="fa fa-fw fa-book"></i> Menu</a> 
-  <a href="contact.html"><i class="fa fa-fw fa-phone"></i> Contact</a> 
-  <a href="login.html"><i class="fa fa-fw fa-user"></i> Login</a>
-</div>
-<img src="new.png" width="1400" height="500">
-<br>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Rest-<span>o</span>-Raunt</a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
 
-<div class="w3-content" style="max-width:1100px">
-  <div class="w3-row w3-padding-64" id="about">
-    <div class="w3-col m6 w3-padding-large w3-hide-small">
-     <img src="table.jpg"  width="400" height="550">
-</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Rest-o-Raunt</h1>
+            <p>Experience the finest culinary delights in a warm and inviting atmosphere</p>
+            <div class="hero-buttons">
+                <a href="menu.html" class="btn btn-primary">Our Menu</a>
+                <a href="contact.html" class="btn btn-outline">Book a Table</a>
+            </div>
+        </div>
+    </section>
 
-      <div class="w3-col m6 w3-padding-large">
-      <h1 class="w3-center">About Rest-o-Raunt</h1><br>
-      <h3 class="w3-center">Tradition since 2017</h3>
-      <p class="w3-large">The Rest-o-Raunt was founded in Las Vegas by 2 young brothers <b>Jayden ferrao</b> and <b>Joyfree dias.</b>Discoveries are made when boundaries are crossed. <br>At Rest-o-Raunt, Las Vegas's wild freedom is tempered by the rigours of contemporary cuisine to create a restaurant at the edge. Check your assumptions with your coats and join us on a journey of flavour discovery. <br> Rest-o-Raunt's design challenges the separation of kitchen and dining room, so each become part of the other. We believe in comfort over formality, collaboration over individual feats, and its depth, complexity and deliciousness lead the way. 
-    </div>
-</div>
-<hr>
-<center><h3>Watch our promotional video below:</h3></center>
-<center><video controls loop="controls" width="60%" height="80%" autoplay poster="promopic.jpg">
-<source src="promo.mp4" type="video/mp4">
-</video></center>
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Learn more about our story and passion for food</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Restaurant Interior">
+                </div>
+                
+                <div class="about-text">
+                    <h3>Tradition since 2017</h3>
+                    <p>The Rest-o-Raunt was founded in Las Vegas by 2 young brothers <b>Jayden Ferrao</b> and <b>Joyfree Dias</b>. Discoveries are made when boundaries are crossed.</p>
+                    <p>At Rest-o-Raunt, Las Vegas's wild freedom is tempered by the rigours of contemporary cuisine to create a restaurant at the edge. Check your assumptions with your coats and join us on a journey of flavour discovery.</p>
+                    
+                    <ul>
+                        <li><i class="fas fa-check"></i> Fresh ingredients sourced daily</li>
+                        <li><i class="fas fa-check"></i> Expert chefs with international experience</li>
+                        <li><i class="fas fa-check"></i> Warm and inviting atmosphere</li>
+                        <li><i class="fas fa-check"></i> Extensive wine and cocktail selection</li>
+                    </ul>
+                    
+                    <p>Rest-o-Raunt's design challenges the separation of kitchen and dining room, so each become part of the other. We believe in comfort over formality, collaboration over individual feats, and its depth, complexity and deliciousness lead the way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<br>
-<hr>
-<span class="heading">Customer Rating</span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<p>4.1 average based on 254 reviews.</p>
-<hr style="border:3px solid #f1f1f1">
+    <!-- Menu Section -->
+    <section class="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Menu</h2>
+                <p>Check our delicious offerings</p>
+            </div>
+            
+            <ul class="menu-filters">
+                <li class="active" data-filter="*">All</li>
+                <li data-filter=".starters">Starters</li>
+                <li data-filter=".mains">Main Courses</li>
+                <li data-filter=".desserts">Desserts</li>
+                <li data-filter=".drinks">Drinks</li>
+            </ul>
+            
+            <div class="menu-items">
+                <!-- Starters -->
+                <div class="menu-item starters">
+                    <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bruschetta">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Bruschetta</h3>
+                            <span class="menu-item-price">$8.99</span>
+                        </div>
+                        <p class="menu-item-description">Toasted bread topped with tomatoes, garlic, and fresh basil.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item starters">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1381&q=80" alt="Garlic Bread">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Garlic Bread</h3>
+                            <span class="menu-item-price">$6.99</span>
+                        </div>
+                        <p class="menu-item-description">Freshly baked bread with garlic butter and herbs.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item starters">
+                    <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1322&q=80" alt="Mozzarella Sticks">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Mozzarella Sticks</h3>
+                            <span class="menu-item-price">$7.99</span>
+                        </div>
+                        <p class="menu-item-description">Breaded mozzarella cheese sticks served with marinara sauce.</p>
+                    </div>
+                </div>
+                
+                <!-- Main Courses -->
+                <div class="menu-item mains">
+                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Grilled Salmon">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Grilled Salmon</h3>
+                            <span class="menu-item-price">$24.99</span>
+                        </div>
+                        <p class="menu-item-description">Fresh salmon fillet grilled to perfection with herbs and lemon.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item mains">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80" alt="Classic Burger">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Classic Burger</h3>
+                            <span class="menu-item-price">$16.99</span>
+                        </div>
+                        <p class="menu-item-description">Juicy beef patty with lettuce, tomato, onion, and special sauce.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item mains">
+                    <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pasta Carbonara">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Pasta Carbonara</h3>
+                            <span class="menu-item-price">$18.99</span>
+                        </div>
+                        <p class="menu-item-description">Creamy pasta with pancetta, eggs, and parmesan cheese.</p>
+                    </div>
+                </div>
+                
+                <!-- Desserts -->
+                <div class="menu-item desserts">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Chocolate Lava Cake">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Chocolate Lava Cake</h3>
+                            <span class="menu-item-price">$7.99</span>
+                        </div>
+                        <p class="menu-item-description">Warm chocolate cake with a molten center, served with vanilla ice cream.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item desserts">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1389&q=80" alt="Cheesecake">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">New York Cheesecake</h3>
+                            <span class="menu-item-price">$8.99</span>
+                        </div>
+                        <p class="menu-item-description">Creamy cheesecake with a graham cracker crust and berry compote.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item desserts">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Tiramisu">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Tiramisu</h3>
+                            <span class="menu-item-price">$9.99</span>
+                        </div>
+                        <p class="menu-item-description">Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream.</p>
+                    </div>
+                </div>
+                
+                <!-- Drinks -->
+                <div class="menu-item drinks">
+                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Fresh Lemonade">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Fresh Lemonade</h3>
+                            <span class="menu-item-price">$4.99</span>
+                        </div>
+                        <p class="menu-item-description">Homemade lemonade with fresh lemons and a hint of mint.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item drinks">
+                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Iced Coffee">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Iced Coffee</h3>
+                            <span class="menu-item-price">$5.99</span>
+                        </div>
+                        <p class="menu-item-description">Chilled coffee with milk and your choice of flavor syrup.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item drinks">
+                    <img src="https://images.unsplash.com/photo-1572119865084-43c285814d63?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mojito">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Mojito</h3>
+                            <span class="menu-item-price">$9.99</span>
+                        </div>
+                        <p class="menu-item-description">Refreshing cocktail with rum, mint, lime, and soda water.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="row">
-  <div class="side">
-    <div>5 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-5"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>150</div>
-  </div>
-  <div class="side">
-    <div>4 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-4"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>63</div>
-  </div>
-  <div class="side">
-    <div>3 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-3"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>25</div>
-  </div>
-  <div class="side">
-    <div>2 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-2"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>6</div>
-  </div>
-  <div class="side">
-    <div>1 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-1"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>9</div>
-  </div>
-</div>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimonials</h2>
+                <p>What our customers are saying</p>
+            </div>
+            
+            <div class="testimonial-container">
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Customer">
+                    </div>
+                    <p class="testimonial-text">"The food at Rest-o-Raunt is absolutely incredible! Every dish is a work of art, and the flavors are out of this world. I'll definitely be coming back!"</p>
+                    <h4 class="testimonial-author">Sarah Johnson</h4>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<hr>
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Location</h4>
+                            <p>123 Restaurant Street, Las Vegas, NV 89101</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Call Us</h4>
+                            <p>+1 702 555 1234</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Email Us</h4>
+                            <p>info@restoraunt.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Opening Hours</h4>
+                            <p>Mon-Sat: 11:00 AM - 10:00 PM<br>Sunday: 12:00 PM - 9:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-<center><p>Powered by CODING DADDIES  <span style="font-size:200%;color:red;">&hearts;</span></p></center>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Rest-o-Raunt</h3>
+                    <p>Experience the finest culinary delights in a warm and inviting atmosphere. Join us for an unforgettable dining experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Restaurant Street, Las Vegas, NV 89101</li>
+                        <li><i class="fas fa-phone"></i> +1 702 555 1234</li>
+                        <li><i class="fas fa-envelope"></i> info@restoraunt.com</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates and special offers.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Rest-o-Raunt. All Rights Reserved. Powered by CODING DADDIES <span style="color:var(--primary-color);">&hearts;</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('.mobile-nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            
+            // Toggle hamburger icon
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+                document.querySelector('.mobile-nav-toggle i').classList.remove('fa-times');
+                document.querySelector('.mobile-nav-toggle i').classList.add('fa-bars');
+            });
+        });
+        
+        // Menu Filtering Functionality
+        document.querySelectorAll('.menu-filters li').forEach(filter => {
+            filter.addEventListener('click', function() {
+                // Remove active class from all filters
+                document.querySelectorAll('.menu-filters li').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Add active class to clicked filter
+                this.classList.add('active');
+                
+                // Get the filter value
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Get all menu items
+                const menuItems = document.querySelectorAll('.menu-item');
+                
+                // Show/hide menu items based on filter
+                menuItems.forEach(item => {
+                    if (filterValue === '*' || item.classList.contains(filterValue.substring(1))) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
 </body>
 </html>

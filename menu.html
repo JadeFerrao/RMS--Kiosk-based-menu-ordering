@@ -1,184 +1,1043 @@
-<html>
-<title>MENU</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script src="https://www.w3schools.com/lib/w3.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest-o-Raunt | Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ce1212;
+            --secondary-color: #37373f;
+            --accent-color: #7f7f90;
+            --light-bg: #fff;
+            --dark-bg: #0c0c0c;
+            --section-bg: #f9f9f9;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--secondary-color);
+            line-height: 1.6;
+            background-color: var(--section-bg);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Amatic SC', cursive;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            padding-bottom: 30px;
+        }
+        
+        .section-title h2 {
+            font-size: 48px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding-bottom: 0;
+            color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: calc(50% - 40px);
+        }
+        
+        .section-title p {
+            margin-bottom: 0;
+            font-size: 16px;
+            color: var(--accent-color);
+        }
+        
+        /* Header Styles */
+        header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-family: 'Amatic SC', cursive;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            z-index: 1001;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-menu li {
+            position: relative;
+            margin: 0 12px;
+        }
+        
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary-color);
+            padding: 10px 0;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover, 
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-nav-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Hero Section */
+        .menu-hero {
+            width: 100%;
+            height: 50vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') top center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .menu-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .menu-hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .menu-hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        /* Menu Navigation */
+        .menu-nav {
+            background-color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 70px;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .menu-nav-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .menu-nav-item {
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: var(--transition);
+            cursor: pointer;
+            background-color: #f5f5f5;
+        }
+        
+        .menu-nav-item.active,
+        .menu-nav-item:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* Menu Sections */
+        .menu-section {
+            padding: 60px 0;
+        }
+        
+        .menu-section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .menu-section-title h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu-item-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .menu-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+            transition: var(--transition);
+        }
+        
+        .menu-item:hover .menu-item-image img {
+            transform: scale(1.05);
+        }
+        
+        .menu-item-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .menu-item-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .menu-item-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 18px;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+        
+        .menu-item-tags {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .menu-item-tag {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .tag-hot {
+            background-color: #ffebee;
+            color: #d32f2f;
+        }
+        
+        .tag-popular {
+            background-color: #e8f5e9;
+            color: #388e3c;
+        }
+        
+        .tag-seasonal {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .tag-chef {
+            background-color: #fff3e0;
+            color: #f57c00;
+        }
+        
+        .tag-tried {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .menu-item-description {
+            color: var(--accent-color);
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .menu-item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .menu-item-size {
+            font-size: 14px;
+            color: var(--accent-color);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-top: 0;
+                transition: var(--transition);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .menu-hero h1 {
+                font-size: 48px;
+            }
+            
+            .menu-items {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-hero h1 {
+                font-size: 36px;
+            }
+            
+            .menu-section-title h2 {
+                font-size: 36px;
+            }
+            
+            .menu-nav-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .menu-nav-item {
+                width: 80%;
+                text-align: center;
+            }
+            
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .menu-hero {
+                height: 40vh;
+            }
+            
+            .menu-hero h1 {
+                font-size: 32px;
+            }
+            
+            .menu-hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Rest-<span>o</span>-Raunt</a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html" class="active">Menu</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
 
-<style>
-body,h1,h2,h3,h4,h5,h6 {
-font-family: "Amatic SC", sans-serif}
+    <!-- Menu Hero Section -->
+    <section class="menu-hero">
+        <div class="menu-hero-content">
+            <h1>Our Delicious Menu</h1>
+            <p>Discover our wide selection of culinary delights</p>
+        </div>
+    </section>
 
-.navbar {
-  width: 100%;
-  background-color:white;
-  overflow: auto;
-}
+    <!-- Menu Navigation -->
+    <section class="menu-nav">
+        <div class="container">
+            <ul class="menu-nav-list">
+                <li class="menu-nav-item active" data-category="all">All Items</li>
+                <li class="menu-nav-item" data-category="pizza">Pizza</li>
+                <li class="menu-nav-item" data-category="pasta">Pasta</li>
+                <li class="menu-nav-item" data-category="starters">Starters</li>
+                <li class="menu-nav-item" data-category="chinese">Chinese</li>
+                <li class="menu-nav-item" data-category="extras">Extras</li>
+            </ul>
+        </div>
+    </section>
 
-.navbar a {
-  float: left;
-  padding: 12px;
-  color: black;
-  text-decoration: none;
-  font-size: 17px;
-}
+    <!-- Menu Sections -->
+    <div class="container">
+        <!-- Pizza Section -->
+        <section class="menu-section" id="pizza">
+            <div class="menu-section-title">
+                <h2>Pizza</h2>
+                <p>Freshly baked with the finest ingredients</p>
+            </div>
+            
+            <div class="menu-items">
+                <!-- Pizza Item 1 -->
+                <div class="menu-item" data-category="pizza">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Margherita Pizza">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Margherita</h3>
+                            <span class="menu-item-price">Rs 220.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-popular">Popular</span>
+                            <span class="menu-item-tag tag-chef">Chef's Best</span>
+                        </div>
+                        <p class="menu-item-description">Fresh tomatoes, fresh mozzarella, fresh basil</p>
+                        <div class="menu-item-footer">
+                            <span class="menu-item-size">Size: S/M/L</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pizza Item 2 -->
+                <div class="menu-item" data-category="pizza">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Formaggio Pizza">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Formaggio</h3>
+                            <span class="menu-item-price">Rs 250.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-tried">Most Tried</span>
+                        </div>
+                        <p class="menu-item-description">Four cheeses (mozzarella, parmesan, pecorino, jarlsberg)</p>
+                        <div class="menu-item-footer">
+                            <span class="menu-item-size">Size: S/M/L</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pizza Item 3 -->
+                <div class="menu-item" data-category="pizza">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Chicken Pizza">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Chicken</h3>
+                            <span class="menu-item-price">Rs 190.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-popular">Popular</span>
+                        </div>
+                        <p class="menu-item-description">Fresh tomatoes, mozzarella, chicken, onions</p>
+                        <div class="menu-item-footer">
+                            <span class="menu-item-size">Size: S/M/L</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pizza Item 4 -->
+                <div class="menu-item" data-category="pizza">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80" alt="Pineapple Pizza">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Pineapple-o-clock</h3>
+                            <span class="menu-item-price">Rs 200.00</span>
+                        </div>
+                        <p class="menu-item-description">Fresh tomatoes, mozzarella, fresh pineapple, bacon, fresh basil</p>
+                        <div class="menu-item-footer">
+                            <span class="menu-item-size">Size: S/M/L</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pizza Item 5 -->
+                <div class="menu-item" data-category="pizza">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1335&q=80" alt="Meat Town Pizza">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Meat Town</h3>
+                            <span class="menu-item-price">Rs 250.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-hot">Hot!</span>
+                            <span class="menu-item-tag tag-tried">Most Tried</span>
+                        </div>
+                        <p class="menu-item-description">Fresh tomatoes, mozzarella, hot pepporoni, hot sausage, beef, chicken</p>
+                        <div class="menu-item-footer">
+                            <span class="menu-item-size">Size: S/M/L</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pasta Section -->
+        <section class="menu-section" id="pasta">
+            <div class="menu-section-title">
+                <h2>Pasta</h2>
+                <p>Authentic Italian pasta dishes</p>
+            </div>
+            
+            <div class="menu-items">
+                <!-- Pasta Item 1 -->
+                <div class="menu-item" data-category="pasta">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Lasagna">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Lasagna</h3>
+                            <span class="menu-item-price">Rs 300.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-popular">Popular</span>
+                            <span class="menu-item-tag tag-chef">Chef's Best</span>
+                        </div>
+                        <p class="menu-item-description">Special sauce, mozzarella, parmesan, ground beef</p>
+                    </div>
+                </div>
+                
+                <!-- Pasta Item 2 -->
+                <div class="menu-item" data-category="pasta">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" alt="Ravioli">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Ravioli</h3>
+                            <span class="menu-item-price">Rs 350.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-tried">Most Tried</span>
+                        </div>
+                        <p class="menu-item-description">Ravioli filled with cheese</p>
+                    </div>
+                </div>
+                
+                <!-- Pasta Item 3 -->
+                <div class="menu-item" data-category="pasta">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1598866594230-a7c12756260f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1392&q=80" alt="Spaghetti">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Spaghetti Classica</h3>
+                            <span class="menu-item-price">Rs 200.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-popular">Popular</span>
+                        </div>
+                        <p class="menu-item-description">Fresh tomatoes, onions, ground beef</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Starters Section -->
+        <section class="menu-section" id="starters">
+            <div class="menu-section-title">
+                <h2>Starters</h2>
+                <p>Perfect beginnings to your meal</p>
+            </div>
+            
+            <div class="menu-items">
+                <!-- Starter Item 1 -->
+                <div class="menu-item" data-category="starters">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Soup">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Today's Soup</h3>
+                            <span class="menu-item-price">Rs 110.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-seasonal">Seasonal</span>
+                        </div>
+                        <p class="menu-item-description">Ask the waiter for today's special soup</p>
+                    </div>
+                </div>
+                
+                <!-- Starter Item 2 -->
+                <div class="menu-item" data-category="starters">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Bruschetta">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Bruschetta</h3>
+                            <span class="menu-item-price">Rs 160.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-popular">Popular</span>
+                        </div>
+                        <p class="menu-item-description">Bread with pesto, tomatoes, onion, garlic</p>
+                    </div>
+                </div>
+                
+                <!-- Starter Item 3 -->
+                <div class="menu-item" data-category="starters">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Garlic Bread">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Garlic Bread</h3>
+                            <span class="menu-item-price">Rs 90.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-tried">Most Tried</span>
+                        </div>
+                        <p class="menu-item-description">Grilled ciabatta, garlic butter, onions</p>
+                    </div>
+                </div>
+                
+                <!-- Starter Item 4 -->
+                <div class="menu-item" data-category="starters">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Chicken Salad">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Chicken Salad</h3>
+                            <span class="menu-item-price">Rs 140.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-popular">Popular</span>
+                        </div>
+                        <p class="menu-item-description">Grilled chicken, fresh salad, olive oil</p>
+                    </div>
+                </div>
+                
+                <!-- Starter Item 5 -->
+                <div class="menu-item" data-category="starters">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="French Fries">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">French Fries</h3>
+                            <span class="menu-item-price">Rs 70.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-tried">Most Tried</span>
+                        </div>
+                        <p class="menu-item-description">Salted & fine cut potato fries, tomato ketchup</p>
+                    </div>
+                </div>
+                
+                <!-- Starter Item 6 -->
+                <div class="menu-item" data-category="starters">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Salmon & Veggies">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Salmon & Veggies</h3>
+                            <span class="menu-item-price">Rs 300.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-chef">Chef's Best</span>
+                        </div>
+                        <p class="menu-item-description">Grilled salmon, sauted veggies, olive oil (Different fish available as per season)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Chinese Section -->
+        <section class="menu-section" id="chinese">
+            <div class="menu-section-title">
+                <h2>Chinese</h2>
+                <p>Authentic Chinese flavors</p>
+            </div>
+            
+            <div class="menu-items">
+                <!-- Chinese Item 1 -->
+                <div class="menu-item" data-category="chinese">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="Fried Rice">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Fried Rice</h3>
+                            <span class="menu-item-price">Rs 120.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-popular">Popular</span>
+                            <span class="menu-item-tag tag-tried">Most Tried</span>
+                        </div>
+                        <p class="menu-item-description">With sauted veggies, seafood & chicken</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Extras Section -->
+        <section class="menu-section" id="extras">
+            <div class="menu-section-title">
+                <h2>Extras</h2>
+                <p>Drinks and beverages</p>
+            </div>
+            
+            <div class="menu-items">
+                <!-- Extra Item 1 -->
+                <div class="menu-item" data-category="extras">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Apple Juice">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Apple Juice</h3>
+                            <span class="menu-item-price">Rs 30.00</span>
+                        </div>
+                        <p class="menu-item-description">Bottled apple juice</p>
+                    </div>
+                </div>
+                
+                <!-- Extra Item 2 -->
+                <div class="menu-item" data-category="extras">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Grape Juice">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Grape Juice</h3>
+                            <span class="menu-item-price">Rs 40.00</span>
+                        </div>
+                        <p class="menu-item-description">Bottled grape juice</p>
+                    </div>
+                </div>
+                
+                <!-- Extra Item 3 -->
+                <div class="menu-item" data-category="extras">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="CocoCola">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">CocoCola</h3>
+                            <span class="menu-item-price">Rs 30.00</span>
+                        </div>
+                        <div class="menu-item-tags">
+                            <span class="menu-item-tag tag-tried">Most Tried</span>
+                        </div>
+                        <p class="menu-item-description">Soft drink</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-.navbar a:hover {
-  background-color: grey;
-}
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Rest-o-Raunt</h3>
+                    <p>Experience the finest culinary delights in a warm and inviting atmosphere. Join us for an unforgettable dining experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Restaurant Street, Las Vegas, NV 89101</li>
+                        <li><i class="fas fa-phone"></i> +1 702 555 1234</li>
+                        <li><i class="fas fa-envelope"></i> info@restoraunt.com</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li>Monday - Saturday: 11:00 AM - 10:00 PM</li>
+                        <li>Sunday: 12:00 PM - 9:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Rest-o-Raunt. All Rights Reserved. Powered by CODING DADDIES <span style="color:var(--primary-color);">&hearts;</span></p>
+            </div>
+        </div>
+    </footer>
 
-.active {
-  background-color:lavender;
-}
-
-@media screen and (max-width: 500px) {
-  .navbar a {
-    float: none;
-    display: block;
-  }
-}
-img {
-  float:left;
-  width:170px;
-  height:170px;
-  margin-left:15px;
-}
-.center{
-display:block;
-margin-left:auto;
-margin-right:auto;
-width:20%;
-}
-</style>
-<body bgcolor="indigo">
-<div class="navbar">
-  <a class="active" href="home.html"><i class="fa fa-fw fa-home"></i> Home</a> 
-  <a href="menu.html"><i class="fa fa-fw fa-book"></i> Menu</a> 
-  <a href="contact.html"><i class="fa fa-fw fa-phone"></i> Contact</a> 
-</div>
-
-<div id="home" class="w3-content">
-<div id="menu" class="w3-container w3-yellow w3-xxlarge w3-padding-64">
-<img src="wall.jpg" class="center">
-<h1 class="w3-center w3-jumbo w3-padding-32">THE MENU</h1>
-<div class="w3-row w3-center w3-border w3-border-dark-grey">
-<a href="#pizza"><div class="w3-third w3-padding-large w3-red">Pizza</div></a>
-<a href="#pasta"><div class="w3-third w3-padding-large w3-hover-red">Pasta</div></a>
-<a href="#starters"><div class="w3-third w3-padding-large w3-hover-red">Starters</div></a>
-</div>
-
-<div id="pizza" class="w3-container w3-white w3-padding-32">
-
-<img src="pizza1.jpg"><h1><b>Margherita</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 220.00</span></h1>
-<p class="w3-text-grey">Fresh tomatoes, fresh mozzarella, fresh basil ;(size -S/M/L)</p>
-
-<hr>
-<img src="pizza2.png"><h1><b>Formaggio</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 250.00</span></h1>
-<p class="w3-text-grey">Four cheeses (mozzarella, parmesan, pecorino, jarlsberg) ;(size -S/M/L)</p>
-
-<hr>
-<img src="pizza3.jpg"><h1><b>Chicken</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 190.00</span></h1>
-<p class="w3-text-grey">Fresh tomatoes, mozzarella, chicken, onions ;(size -S/M/L)</p>
-
-<hr>
-<img src="pizza4.png"><h1><b>Pineapple-o-clock</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 200.00</span></h1>
-<p class="w3-text-grey">Fresh tomatoes, mozzarella, fresh pineapple, bacon, fresh basil ;(size -S/M/L)</p>
-
-<hr>
-<img src="pizza5.jpg"><h1><b>Meat Town</b> <span class="w3-tag w3-red w3-round">Hot!</span>
-<span class="w3-right w3-tag w3-dark-grey w3-round">Rs 250.00</span></h1>
-<p class="w3-text-grey">Fresh tomatoes, mozzarella, hot pepporoni, hot sausage, beef, chicken ;(size -S/M/L)</p>
-</div>
-
-
-
-<h1 id="pasta" class="w3-center w3-jumbo w3-padding-32">PASTA</h1>
-<div id="home" class="w3-content">
-<div id="menu" class="w3-container w3-xxlarge w3-padding-64">
-<div class="w3-row w3-center w3-border w3-border-dark-grey">
-<a href="#pizza"><div class="w3-third w3-padding-large w3-red">Pizza</div></a>
-<a href="#pasta"><div class="w3-third w3-padding-large w3-hover-red">Pasta</div></a>
-<a href="#starters"><div class="w3-third w3-padding-large w3-hover-red">Starters</div></a>
-</div>
-
-<div id="pasta" class="w3-container w3-white w3-padding-32">
-
-<img src="pasta1.jpg"><h1><b>Lasagna</b> <span class="w3-tag w3-grey w3-round">Popular</span>
-<span class="w3-right w3-tag w3-dark-grey w3-round">Rs 300.00</span></h1>
-<p class="w3-text-grey">Special sauce, mozzarella, parmesan, ground beef</p>
-
-<hr>
-<img src="pasta2.jpg"><h1><b>Raviolli</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 350.00</span></h1>
-<p class="w3-text-grey">Ravioli filled with cheese</p>
-
-<hr>
-<img src="pasta3.jpg"><h1><b>Spaghetti Classica</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 200.00</span></h1>
-<p class="w3-text-grey">Fresh tomatoes, onions, ground beef</p>
-</div>
-
-<h1 id="starters" class="w3-center w3-jumbo w3-padding-32">STARTERS</h1>
-<div id="home" class="w3-content">
-<div id="menu" class="w3-container w3-xxlarge w3-padding-64">
-<div class="w3-row w3-center w3-border w3-border-dark-grey">
-<a href="#pizza"><div class="w3-third w3-padding-large w3-red">Pizza</div></a>
-<a href="#pasta"><div class="w3-third w3-padding-large w3-hover-red">Pasta</div></a>
-<a href="#starters"><div class="w3-third w3-padding-large w3-hover-red">Starters</div></a>
-</div>
-
-<div id="starters" class="w3-container w3-white w3-padding-32">
-
-
-<img src="starter1.jpg"><h1><b>Today's Soup</b> <span class="w3-tag w3-grey w3-round">Seasonal</span>
-<span class="w3-right w3-tag w3-dark-grey w3-round">Rs 110.00</span></h1>
-<p class="w3-text-grey">Ask the waiter</p>
-
-<hr>
-<img src="starter2.jpg"><h1><b>Bruschetta</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 160.00</span></h1>
-<p class="w3-text-grey">Bread with pesto, tomatoes, onion, garlic</p>
-
-<hr>
-<img src="starter3.jpg"><h1><b>Garlic Bread</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 90.00</span></h1>
-<p class="w3-text-grey">Grilled ciabatta, garlic butter, onions</p>
-
-<hr>
-<img src="starter4.jpg"><h1><b>Chicken Salad</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 140.00</span></h1>
-<p class="w3-text-grey">Grilled chicken,fresh salad, olive oil</p>
-
-<hr>
-<img src="starter5.jpg"><h1><b>French Fries</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 70.00</span></h1>
-<p class="w3-text-grey">Salted & fine cut potato fries, tomato ketchup</p>
-
-<hr>
-<img src="starter6.jpg"><h1><b>Salmon & Veggies</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 300.00</span></h1>
-<p class="w3-text-grey">Grilled salmon, sauted veggies, olive oil ;(Different fish availabe as per season)</p>
-</div>
-
-<h1 id="" class="w3-center w3-jumbo w3-padding-32">CHINESE</h1>
-<div id="" class="w3-container w3-white w3-padding-32">
-
-<img src="friedrice.jpeg"><h1><b>Fried Rice</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 120.00</span></h1>
-<p class="w3-text-grey">With sauted veggies,seafood & chicken</p>
-
-<hr>
-</div>
-
-
-<h1 id="" class="w3-center w3-jumbo w3-padding-32">EXTRAS</h1>
-<div id="" class="w3-container w3-white w3-padding-32">
-
-<img src="apple.png"><h1><b>Apple Juice</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 30.00</span></h1>
-<p class="w3-text-grey">bottled apple juice</p>
-
-<hr>
-<img src="grapes.png"><h1><b>Grape Juice</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 40.00</span></h1>
-<p class="w3-text-grey">bottled grape juice</p>
-
-<hr>
-<img src="coco.jpg"><h1><b>CocoCola</b> <span class="w3-right w3-tag w3-dark-grey w3-round">Rs 30.00</span></h1>
-<p class="w3-text-grey">soft drink</p>
-
-</div>
-</div>
-
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('.mobile-nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            
+            // Toggle hamburger icon
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+                document.querySelector('.mobile-nav-toggle i').classList.remove('fa-times');
+                document.querySelector('.mobile-nav-toggle i').classList.add('fa-bars');
+            });
+        });
+        
+        // Menu Category Filtering
+        document.querySelectorAll('.menu-nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                document.querySelectorAll('.menu-nav-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Get the category to filter
+                const category = this.getAttribute('data-category');
+                
+                // Show/hide menu items based on category
+                document.querySelectorAll('.menu-item').forEach(menuItem => {
+                    if (category === 'all' || menuItem.getAttribute('data-category') === category) {
+                        menuItem.style.display = 'block';
+                    } else {
+                        menuItem.style.display = 'none';
+                    }
+                });
+                
+                // Scroll to the appropriate section if not "all"
+                if (category !== 'all') {
+                    const section = document.getElementById(category);
+                    if (section) {
+                        window.scrollTo({
+                            top: section.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

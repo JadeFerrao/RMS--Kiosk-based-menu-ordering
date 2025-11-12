@@ -1,150 +1,856 @@
-<html>
-<title>CONTACT</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script src="https://www.w3schools.com/lib/w3.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {
-font-family: "Amatic SC", sans-serif
-}
-.navbar {
-  width: 100%;
-  background-color:white;
-  overflow: auto;
-}
-
-.navbar a {
-  float: left;
-  padding: 12px;
-  color: black;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar a:hover {
-  background-color: grey;
-}
-
-.active {
-font-family: sans-serif
-  background-color:lavender;
-}
-
-@media screen and (max-width: 500px) {
-  .navbar a {
-    float: none;
-    display: block;
-  }
-}
-
-
-
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-.column {
-  float: left;
-  width: 33.3%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
-  background-color:brown;
-}
-
-.about-section {
-  padding: 50px;
-  text-align: center;
-  background-color: #474e5d;
-  color: white;
-}
-
-.container {
-  padding: 0 16px;
-}
-
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.title {
-  color: pink;
-}
-
-
-
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest-o-Raunt | Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ce1212;
+            --secondary-color: #37373f;
+            --accent-color: #7f7f90;
+            --light-bg: #fff;
+            --dark-bg: #0c0c0c;
+            --section-bg: #f9f9f9;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--secondary-color);
+            line-height: 1.6;
+            background-color: var(--section-bg);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Amatic SC', cursive;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            padding-bottom: 30px;
+        }
+        
+        .section-title h2 {
+            font-size: 48px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding-bottom: 0;
+            color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: calc(50% - 40px);
+        }
+        
+        .section-title p {
+            margin-bottom: 0;
+            font-size: 16px;
+            color: var(--accent-color);
+        }
+        
+        /* Header Styles */
+        header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-family: 'Amatic SC', cursive;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            z-index: 1001;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-menu li {
+            position: relative;
+            margin: 0 12px;
+        }
+        
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary-color);
+            padding: 10px 0;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover, 
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-nav-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Hero Section */
+        .contact-hero {
+            width: 100%;
+            height: 50vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1447&q=80') top center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .contact-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .contact-hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .contact-hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .contact-info-content h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .contact-info-content p {
+            color: var(--accent-color);
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #e61414;
+        }
+        
+        /* Map Section */
+        .map-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-member-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .team-member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .team-member:hover .team-member-image img {
+            transform: scale(1.05);
+        }
+        
+        .team-member-content {
+            padding: 20px;
+        }
+        
+        .team-member-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .team-member-role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .team-member-contact {
+            color: var(--accent-color);
+            font-size: 14px;
+        }
+        
+        .team-member-contact p {
+            margin-bottom: 5px;
+        }
+        
+        /* Hours Section */
+        .hours-section {
+            padding: 60px 0;
+            background-color: var(--section-bg);
+        }
+        
+        .hours-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .hours-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .hours-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .hours-list {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .hours-list h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+        
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .hours-item:last-child {
+            border-bottom: none;
+        }
+        
+        .hours-day {
+            font-weight: 600;
+        }
+        
+        .hours-time {
+            color: var(--accent-color);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-top: 0;
+                transition: var(--transition);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .contact-hero h1 {
+                font-size: 48px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 36px;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+            .team-members {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .contact-hero {
+                height: 40vh;
+            }
+            
+            .contact-hero h1 {
+                font-size: 32px;
+            }
+            
+            .contact-hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
 <body>
-<div class="navbar">
-  <a class="active" href="home.html"><i class="fa fa-fw fa-home"></i> Home</a> 
-  <a href="menu.html"><i class="fa fa-fw fa-book"></i> Menu</a> 
-  <a href="contact.html"><i class="fa fa-fw fa-phone"></i> Contact</a> 
-</div>
-<div id="home" class="w3-content">
-<div class="w3-container w3-blue-grey w3-grayscale-min w3-xlarge w3-padding-top-32">
-<h1 class="w3-center w3-jumbo">Contact</h1>
-<p>Find us at 23-venue downtown Las Vegas or call us at 05050515-122330</p>
-<p>We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggest criteria of them all, both look and taste.</p>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Rest-<span>o</span>-Raunt</a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
 
-<center><p style="color: black">TIMINGS:<br>
-           12:30am - 11:30pm (Lunch & Dinner)<br>
-           6:30am - 10:30am (Breakfast)<br></p>
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <h1>Get In Touch</h1>
+            <p>We'd love to hear from you. Reach out to us with any questions or to make a reservation.</p>
+        </div>
+    </section>
 
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>We're here to help with any questions or reservations</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Location</h4>
+                            <p>123 Restaurant Street, Downtown Las Vegas, NV 89101</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Call Us</h4>
+                            <p>+1 (702) 555-1234</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Email Us</h4>
+                            <p>info@restoraunt.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Catering Services</h4>
+                            <p>We offer full-service catering for any event, large or small. We understand your needs and will cater to satisfy both look and taste.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<hr>
-<h2 style="text-align:center; color: yellow">Our Team</h2>
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>Jayden Ferrao</h2>
-        <p class="title">CEO & Founder</p>
-         <p>ferrao@example.com</p>
-        <p>05050515-122330</p>
-      </div>
-    </div>
-  </div>
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Find Us</h2>
+                <p>Visit our restaurant in the heart of Las Vegas</p>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3221.454434548853!2d-115.1398266847285!3d36.16976698008778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c392d5e33c5d%3A0x5d1c8c3d5e33c5d2!2sLas%20Vegas%2C%20NV%2C%20USA!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
 
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>Joyfree Dias</h2>
-        <p class="title">Co-Founder & Developer</p>
-        <p>dias@example.com</p>
-        <p>05050515-122330</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Admin</p>
-        <p>admin@example.com</p>
-        <p>05050515-122330</p>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
+    <!-- Hours Section -->
+    <section class="hours-section">
+        <div class="container">
+            <div class="hours-content">
+                <div class="hours-text">
+                    <h2>Our Opening Hours</h2>
+                    <p>We welcome you to dine with us during our operating hours. Whether you're looking for a hearty breakfast, a business lunch, or a romantic dinner, we've got you covered.</p>
+                    <p>For special events and large parties, we recommend making a reservation in advance to ensure availability.</p>
+                </div>
+                
+                <div class="hours-list">
+                    <h3>Restaurant Hours</h3>
+                    <div class="hours-item">
+                        <span class="hours-day">Monday - Friday</span>
+                        <span class="hours-time">11:00 AM - 10:00 PM</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="hours-day">Saturday</span>
+                        <span class="hours-time">11:00 AM - 11:00 PM</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="hours-day">Sunday</span>
+                        <span class="hours-time">12:00 PM - 9:00 PM</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="hours-day">Breakfast</span>
+                        <span class="hours-time">6:30 AM - 10:30 AM</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="hours-day">Lunch & Dinner</span>
+                        <span class="hours-time">12:30 PM - 11:30 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team</h2>
+                <p>Meet the people behind Rest-o-Raunt</p>
+            </div>
+            
+            <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-image">
+                    <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Jayden Ferrao">
+                </div>
+                    <div class="team-member-content">
+                        <h3 class="team-member-name">Jayden Ferrao</h3>
+                        <p class="team-member-role">CEO & Founder</p>
+                        <div class="team-member-contact">
+                            <p><i class="fas fa-envelope"></i> ferrao@example.com</p>
+                            <p><i class="fas fa-phone"></i> +1 (702) 555-1234</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                  <div class="team-member-image">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Joyfree Dias">
+                </div>
+                    <div class="team-member-content">
+                        <h3 class="team-member-name">Joyfree Dias</h3>
+                        <p class="team-member-role">Co-Founder & Developer</p>
+                        <div class="team-member-contact">
+                            <p><i class="fas fa-envelope"></i> dias@example.com</p>
+                            <p><i class="fas fa-phone"></i> +1 (702) 555-1234</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                  <div class="team-member-image">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1361&q=80" alt="John Doe">
+                </div>
+                    <div class="team-member-content">
+                        <h3 class="team-member-name">Daisy Doe</h3>
+                        <p class="team-member-role">Restaurant Manager</p>
+                        <div class="team-member-contact">
+                            <p><i class="fas fa-envelope"></i> admin@example.com</p>
+                            <p><i class="fas fa-phone"></i> +1 (702) 555-1234</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Rest-o-Raunt</h3>
+                    <p>Experience the finest culinary delights in a warm and inviting atmosphere. Join us for an unforgettable dining experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Restaurant Street, Las Vegas, NV 89101</li>
+                        <li><i class="fas fa-phone"></i> +1 702 555 1234</li>
+                        <li><i class="fas fa-envelope"></i> info@restoraunt.com</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li>Monday - Saturday: 11:00 AM - 10:00 PM</li>
+                        <li>Sunday: 12:00 PM - 9:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Rest-o-Raunt. All Rights Reserved. Powered by CODING DADDIES <span style="color:var(--primary-color);">&hearts;</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('.mobile-nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            
+            // Toggle hamburger icon
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+                document.querySelector('.mobile-nav-toggle i').classList.remove('fa-times');
+                document.querySelector('.mobile-nav-toggle i').classList.add('fa-bars');
+            });
+        });
+    </script>
 </body>
 </html>
